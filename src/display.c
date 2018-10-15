@@ -1,5 +1,4 @@
 #include "display.h"
-#include <string.h> // para NULL
 
 
 // buffers para video: frontbuffer y backbuffer
@@ -36,5 +35,9 @@ bool DISPLAY_Clear (uint8_t color)
         return false;
     }
 
+    // Borra el backbuffer con el color especificado
+    memset (g_DISPLAY->backBuffer, color, DRIVER_FRAMEBUFFER_SIZE);
+
     return true;
 }
+

@@ -10,6 +10,14 @@ extern uint8_t g_framebufferB [DRIVER_FRAMEBUFFER_SIZE];
 struct DISPLAY display;
 
 
+void setUp (void)
+{
+    // Inicia con datos conocidos en los buffers, para comprobacion por 0x00 en ESCENARIO Borrado de pantalla
+    memset (g_framebufferA, 0xFF, sizeof(g_framebufferA));
+    memset (g_framebufferB, 0xFF, sizeof(g_framebufferB));
+}
+
+
 // ESCENARIO Comprobacion de tamaño de los buffers
 void test_tamanio_buffers (void)
 {
@@ -43,5 +51,17 @@ void test_inicio_correcto_sistema (void)
 void test_uso_sistema_iniciado (void)
 {
     TEST_ASSERT_EQUAL (DISPLAY_Clear(0x34), true);
+}
+
+
+// ESCENARIO Borrado de pantalla
+void test_borrado_de_pantalla (void)
+{
+    TEST_ASSERT_EQUAL (DISPLAY_Clear(0x00), true);
+
+    for (uint32_t i = 0; i < (256*144); ++i)
+    {
+        TEST_ASSERT_EQUAL (display.backBuffer[i], 0x00);
+    }
 }
 

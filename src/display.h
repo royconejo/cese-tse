@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <string.h> // para NULL y memset
 
 
 #define DRIVER_FRAMEBUFFER_SIZE     (256*144)
