@@ -11,6 +11,17 @@ uint8_t g_framebufferB [DRIVER_FRAMEBUFFER_SIZE];
 static struct DISPLAY   *g_DISPLAY  = NULL;
 
 
+bool DISPLAY_Init (struct DISPLAY *d)
+{
+    if (!d)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+
 bool DISPLAY_Clear (uint8_t color)
 {
     if (!g_DISPLAY)

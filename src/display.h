@@ -15,7 +15,9 @@ struct DISPLAY
 };
 
 
+// Inicia el sistema
+bool DISPLAY_Init (struct DISPLAY *d);
+
 // Borra pantalla al color especificado, devuelve "false" si falla
 bool DISPLAY_Clear (uint8_t color);
-
 

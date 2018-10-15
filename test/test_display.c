@@ -23,4 +23,9 @@ void test_uso_sistema_no_iniciado (void)
 }
 
 
+// ESCENARIO Inicio del sistema con parametro incorrecto
+void test_inicio_sistema_param_incorrecto (void)
+{
+    TEST_ASSERT_EQUAL (DISPLAY_Init(NULL), false);
+}
 
