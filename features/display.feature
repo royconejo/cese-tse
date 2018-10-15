@@ -14,16 +14,25 @@ Escenario: Comprobacion de tamaño de los buffers
 
 Escenario: Uso con el sistema no iniciado
     Dado un sistema no iniciado
-    Cuando llamo a borrar pantalla con cualquier color
+    Cuando llamo a borrar pantalla con cualquier color como parametro
     Entonces la accion falla
 
-Escenario: Arranque del sistema
-    Dado un sistema iniciado
-    Cuando llamo a borrar pantalla con cualquier color
+Escenario: Inicio del sistema con parametro incorrecto
+    Cuando llamo a iniciar sistema con NULL como parametro
+    Entonces la accion falla
+
+Escenario: Inicio correcto del sistema
+    Cuando llamo a iniciar sistema pasando un puntero a estructura DISPLAY
+    Entonces se asignan a la estructura los punteros a front y backbuffer
+    Y la accion no falla
+
+Escenario: Uso con sistema iniciado
+    Dado un sistema iniciado correctamente
+    Cuando llamo a borrar pantalla con cualquier color como parametro
     Entonces la accion no falla
 
 Escenario: Borrado de pantalla
-    Dado un sistema iniciado
+    Dado un sistema iniciado correctamente
     Cuando llamo a borrar pantalla con color 0x00
     Y borrar pantalla asigna 0x00 a cada byte del backbuffer
     Entonces la accion no falla
