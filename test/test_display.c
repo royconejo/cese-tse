@@ -16,4 +16,11 @@ void test_tamanio_buffers (void)
 }
 
 
+// ESCENARIO Uso con el sistema no iniciado
+void test_uso_sistema_no_iniciado (void)
+{
+    TEST_ASSERT_EQUAL (DISPLAY_Clear(0x12), false);
+}
+
+
 
