@@ -7,6 +7,8 @@ extern uint8_t g_framebufferA [DRIVER_FRAMEBUFFER_SIZE];
 extern uint8_t g_framebufferB [DRIVER_FRAMEBUFFER_SIZE];
 
 
+struct DISPLAY display;
+
 
 // ESCENARIO Comprobacion de tamaño de los buffers
 void test_tamanio_buffers (void)
@@ -28,4 +30,12 @@ void test_inicio_sistema_param_incorrecto (void)
 {
     TEST_ASSERT_EQUAL (DISPLAY_Init(NULL), false);
 }
+
+
+// ESCENARIO Inicio correcto del sistema
+void test_inicio_correcto_sistema (void)
+{
+    TEST_ASSERT_EQUAL (DISPLAY_Init(&display), true);
+}
+
 

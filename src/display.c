@@ -18,6 +18,13 @@ bool DISPLAY_Init (struct DISPLAY *d)
         return false;
     }
 
+    // Se asignan a la estructura los punteros a front y backbuffer
+    d->frontBuffer  = g_framebufferA;
+    d->backBuffer   = g_framebufferB;
+
+    // Sistema iniciado
+    g_DISPLAY = d;
+
     return true;
 }
 
