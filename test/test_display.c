@@ -39,3 +39,9 @@ void test_inicio_correcto_sistema (void)
 }
 
 
+// ESCENARIO Uso con sistema iniciado
+void test_uso_sistema_iniciado (void)
+{
+    TEST_ASSERT_EQUAL (DISPLAY_Clear(0x34), true);
+}
+
